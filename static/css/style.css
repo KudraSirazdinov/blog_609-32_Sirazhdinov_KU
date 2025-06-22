@@ -1,4 +1,3 @@
-/* Основные стили */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -12,6 +11,8 @@ header {
     background-color: #2c3e50;
     color: #fff;
     padding: 1rem 0;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .header-container {
@@ -25,27 +26,42 @@ header {
 /* Логотип */
 .logo {
     font-size: 2rem;
-    font-weight: bolder;
-    margin-right: 1500px;
+    font-weight: bold;
+}
+
+.logo a {
+    color: #fff;
+    text-decoration: none;
 }
 
 /* Навигация */
-.main-nav ul {
-    list-style: none;
-    padding: 0;
+.main-nav {
+    flex: 1;
     display: flex;
-    margin: 0;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.main-nav {
-    margin-left: auto; /* Перемещает навигацию в правую часть */
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-left: auto;
+}
+
+.main-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
 }
 
 .main-nav li {
-    margin-top: 10px;
-    margin-left: 5rem;
+    margin: 0;
 }
 
+/* Ссылки навигации */
 .main-nav a {
     color: #fff;
     text-decoration: none;
@@ -59,6 +75,22 @@ header {
     font-weight: bold;
 }
 
+/* Кнопка logout */
+
+
+.form button {
+    background-color: transparent;
+    color: #fff;
+    border: 1px solid #fff;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.form button:hover {
+    background-color: #1a252f;
+}
+
 /* Основное содержимое */
 main {
     width: 90%;
@@ -67,13 +99,13 @@ main {
 
 /* Стили для статей */
 .article-list {
-    display: flex; /* Используем flexbox для расположения статей в строку */
-    flex-wrap: wrap; /* Позволяет переносить статьи на новую строку, если не хватает места */
+    display: flex;
+    flex-wrap: wrap;
     gap: 2rem;
 }
 
 .article__item {
-    flex: 0 0 calc(25% - 2rem); /* Устанавливаем ширину статьи и учитываем отступы */
+    flex: 0 0 calc(25% - 2rem);
     border: 1px solid #ddd;
     margin-bottom: 30px;
     padding: 1rem;
@@ -93,44 +125,248 @@ main {
     text-decoration: underline;
 }
 
-/* Стили для деталей статьи */
-.article-detail {
-    max-width: 800px;
-    margin: 0 auto;
-}
 
-.article-detail img {
-    max-width: 100%;
-    height: auto;
-}
 
 /* Стили для форм */
-.form, .signup-form {
+.signup-form {
     display: flex;
     flex-direction: column;
     max-width: 400px;
     margin: 0 auto;
 }
 
-.form input, .signup-form input, .signup-form button {
+.signup-form input,
+.signup-form button {
     margin: 0.5rem 0;
     padding: 0.5rem;
 }
 
-.signup-button, .form button {
+.signup-button {
     background-color: #2c3e50;
     color: #fff;
     border: none;
     cursor: pointer;
 }
 
-.signup-button:hover, .form button:hover {
+.signup-button:hover {
     background-color: #1a252f;
 }
 
 /* Центрирование текста на страницах Home и About */
-.homepage-content, .about-content {
+.homepage-content,
+.about-content {
     text-align: center;
     margin: 0 auto;
     width: 100%;
+}
+/* Специальные стили для кнопки на странице Login */
+.login-form button {
+    background-color: #3498db; /* Синий, легко читаемый */
+    color: white;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: none; /* Без эффектов при наведении */
+}
+
+/* Убираем hover-эффект */
+.login-form button:hover {
+    background-color: #3498db;
+}
+
+/* Немного центрируем login-страницу */
+.login {
+    max-width: 400px;
+    margin: 2rem auto;
+    padding: 1.5rem;
+    background-color: #f9f9f9;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.login h1 {
+    margin-bottom: 1rem;
+}
+
+form button[type="submit"] {
+    background-color: #007BFF;  /* Синий фон */
+    color: white;               /* Белый текст */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: none;
+    display: inline-block;
+}
+
+
+/* Детальная статья */
+.article-detail {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    max-width: 800px;
+    margin: 2rem auto;
+}
+
+.article-detail img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+}
+
+.article-detail h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #2c3e50;
+}
+
+.article-detail p {
+    font-size: 1.1rem;
+    color: #444;
+    line-height: 1.8;
+}
+
+/* Стили для формы создания статьи */
+.create-article-form {
+    max-width: 700px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* Заголовок формы (если используется) */
+.create-article-form h2 {
+    margin-bottom: 1rem;
+    color: #2c3e50;
+    font-size: 1.8rem;
+    text-align: center;
+}
+
+/* Метки формы */
+.create-article-form label {
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 0.3rem;
+}
+
+/* Поля ввода */
+.create-article-form input[type="text"],
+.create-article-form input[type="file"],
+.create-article-form textarea {
+    padding: 0.8rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #f9f9f9;
+}
+
+/* Текстовое поле */
+.create-article-form textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+/* Кнопка отправки */
+.create-article-form button[type="submit"] {
+    background-color: #2c3e50;
+    color: white;
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.create-article-form button[type="submit"]:hover {
+    background-color: #1a252f;
+}
+
+
+/* ---------- Адаптивные стили ---------- */
+
+/* Для планшетов и маленьких ноутбуков */
+@media (max-width: 992px) {
+    .header-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        gap: 1rem;
+        margin-top: 1rem;
+    }
+
+    .article__item {
+        flex: 0 0 calc(50% - 1rem);
+    }
+
+    .create-article-form,
+    .article-detail,
+    .login,
+    .signup-form {
+        width: 100%;
+        padding: 1rem;
+        margin: 1rem auto;
+    }
+
+    .main-nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+/* Для мобильных устройств */
+@media (max-width: 576px) {
+    .article__item {
+        flex: 0 0 100%;
+    }
+
+    .main-nav,
+    .nav-links {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .logo {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .form button,
+    .create-article-form button,
+    .login-form button {
+        width: 100%;
+    }
+
+    .nav-links {
+        gap: 0.8rem;
+    }
+
+    .header-container {
+        padding: 0 1rem;
+    }
+
+    main {
+        width: 95%;
+        margin: 1rem auto;
+    }
 }

@@ -10,7 +10,7 @@
             {% for article in articles %}
                 <div class="article__item">
                     <h2>
-                        <a href="{% url 'article_detail' slug=article.slug %}">
+                        <a href="{% url 'articles:article_detail' slug=article.slug %}">
                             {{ article.title }}
                         </a>
                     </h2>
@@ -23,6 +23,7 @@
                 </div>
             {% endfor %}
         </div>
+
     </div>
 {% endblock %}
 
